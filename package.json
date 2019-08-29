@@ -1,0 +1,15 @@
+{
+  "name": "bma-bw-map",
+  "version": "1.0.0",
+  "description": "bma bandwidth capacity map",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/rinradanat/bma-bw-map",
+  "author": "Rinrada",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^6.0.5"
+  }
+}
