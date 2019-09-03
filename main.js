@@ -1,71 +1,105 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
+const ipc = require('electron').ipcMain;
 
-const {app, BrowserWindow, Menu } = electron;
+// Set ENV
+process.env.NODE_ENV = 'development';
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
-let mainWindow;
+// const formidable = require('formidable');
+// const fs = require('fs');
 
-// Listen for the app to be ready
-app.on('ready', function(){
-  //create new window
-  mainWindow = new BrowserWindow({
-  width: 600,
-  height: 425,
-  backgroundColor: '#FFFFFF',
-  resizable: false,
-  });
-  //load html into window
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'mainWindow.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
+const {app, BrowserWindow, Menu, dialog } = require('electron');
+const os = require('os');
 
-  // Build menu from template
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-  // insert MenuMenu
-  Menu.setApplicationMenu(mainMenu);
+  let mainWindow;
 
-});
-
-// handle create import window
-
-  function createImportWindow(){
-    // create new window
-    importWindow = new BrowserWindow({
-    width: 500,
-    height: 325,
-    title: 'Import File'
-    });
-    importWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'importWindow.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-
+    // Listen for the app to be ready
+    app.on('ready', function(){
+      //create new window
+      mainWindow = new BrowserWindow({
+      // width: 600,
+      // height: 425,
+      resizable: true,
+      webPreferences: {
+        nodeIntegration: true,
   }
+      });
+      //load html into window
+      mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'src/index.html'),
+        protocol: 'file:',
+        slashes: true
+      }));
+
+      // Build menu from template
+      const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+      // insert MenuMenu
+      Menu.setApplicationMenu(mainMenu);
+
+    });
 
 // create menu template
 
-const mainMenuTemplate =[
-  {
-    label:'File',
-    submenu:[
-      {
-        label: 'Import File',
-        click(){
-          createImportWindow();
+  const mainMenuTemplate =[
+    {
+      label:'File',
+      submenu:[
+        {
+          label: 'Import File',
+          accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+          // click(){
+          //   openFile();
+          // }
+        },
+        {
+          label: 'Quit',
+          accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q', // test by node it's a shortcut
+          click(){
+            app.quit();
+          }
         }
-      },
-      {
-        label: 'Quit',
-        //accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q' // test by node it's a shortcut
-        click(){
-          app.quit();
-        }
-      }
-    ]
-  }
-];
+      ]
+    }
+  ];
+
+// open dialog
+
+      ipc.on('open-file-dialog-for-file', function (event) {
+        if(os.platform() === 'linux' || os.platform() === 'win32'){
+           dialog.showOpenDialog({
+               properties: ['openFile']
+           }, function (files) {
+              if (files) event.sender.send('selected-file', files[0]);
+           });
+       } else {
+           dialog.showOpenDialog({
+               properties: ['openFile', 'openDirectory']
+           }, function (files) {
+               if (files) event.sender.send('selected-file', files[0]);
+           });
+       }});
+    
+
 // add dev tools
+
+  if(process.env.NODE_ENV !== 'production'){
+    mainMenuTemplate.push({
+      label: 'Developer Tools',
+      submenu:[
+        {
+          role: 'reload'
+        },
+        {
+          label: 'Toggle DevTools',
+          accelerator:process.platform == 'darwin' ? 'Command+Shift+I' : 'Ctrl+Shift+I',
+          click(item, focusedWindow){
+            focusedWindow.toggleDevTools();
+          }
+        }
+      ]
+    });
+  }
+
+console.log('working on main.js');

@@ -4,12 +4,19 @@
   "description": "bma bandwidth capacity map",
   "main": "main.js",
   "scripts": {
+    "test": "electron .",
     "start": "electron ."
   },
   "repository": "https://github.com/rinradanat/bma-bw-map",
   "author": "Rinrada",
   "license": "ISC",
   "dependencies": {
-    "electron": "^6.0.5"
+    "electron": "^6.0.7",
+    "formidable": "^1.2.1",
+    "read-excel-file": "^4.0.2",
+    "xlsx": "^0.15.1"
+  },
+  "devDependencies": {
+    "electron-devtools-installer": "^2.2.4"
   }
 }
