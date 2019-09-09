@@ -42,9 +42,6 @@ const exceljs = require('exceljs');
 
       // *show outputs of Site on html
 
-      // var nextSiteUtl = fileData[i+1].Utilization ;
-
-      // var output = '';
       var newUtlOne = [];
       var newUtlTwo = [];
 
@@ -64,32 +61,31 @@ const exceljs = require('exceljs');
           // console.log(siteName +' utlization is '+ siteTwoUtl + '%');
           // document.getElementById('filedataShow').innerHTML = siteName + siteTwoUtl;
           }
-
         }
+
+          var maxUtl = [];
+
+          for (var a = 0; a < 15 ; a++)
+              if (newUtlOne[a] < newUtlTwo[a]) {
+                maxUtl.push(newUtlTwo[a])
+                // console.log('two max');
+              } else {
+                maxUtl.push(newUtlOne[a])
+                // console.log('one max');
+          }
+
           // *show values from new arrays
           console.log(newUtlOne);
           console.log(newUtlTwo);
+          console.log('Max Utilization');
+          console.log(maxUtl);
 
-          // var maxUtl = [];
-          //
-          // for (i = 0; i < newUtlOne.length; i++) {
-          //   for (j = 0; j < newUtlTwo.length; j++) {
-          //     if (newUtlOne[i].values < newUtlTwo[j].values){
-          //       return 1;
-          //       // maxUtl.push(newUtlOne)
-          //       // console.log(maxUtl);
-          //     } else {
-          //       return 0;
-          //       }
-          //     }
-          //     console.log('on loop');
-          // }
-          // console.log('out loop');
+          })
 
         })
 
       })
-    })
+
 
 
         // var myJSON = JSON.stringify(fileData);
