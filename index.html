@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <title>bma map prototype</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 
   </head>
 
@@ -14,12 +14,19 @@
     <h1>Choose a file to upload</h1><br>
 
     <button id="upload">Open</button><br>
+    <h1 id="filedataShow"></h1><br>
+    <button id="run">Run</button><br><br>
+
+    <table id="table" border="2" style="text-align:center">
+
+    </table>
+
 
     <!-- We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>. -->
 
   </center>
-  <script src="renderer.js"></script>
+  <script src="renderer.js">  </script>
   </body>
 </html>

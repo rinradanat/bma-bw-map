@@ -7,8 +7,16 @@ const fs = require('fs');
 const xlsx = require('xlsx');
 const exceljs = require('exceljs');
 
-    const openBtn = document.getElementById('upload')
+    var newUtlOne = [];
+    var newUtlTwo = [];
+    var siteOneUtl,siteTwoUtl
+    var maxUtl = [];
+    var finalSite = ['AGN-ASD','AGN-BBT','AGN-BGC','AGN-BPL','AGN-CSW','AGN-DNM','AGN-LTP',
+    'AGN-PKK','AGN-PSN','AGN-PSP','AGN-PTT','AGN-RBN','AGN-RIT','AGN-TYAN','AGN-TYB'];
+    var newData = [];
+    var workbook, worksheet, sheetNameList, fileData, headerList;
 
+    const openBtn = document.getElementById('upload')
     openBtn.addEventListener('click', function(event){
 
     ipc.send('open-file-dialog-for-file')
@@ -25,70 +33,90 @@ const exceljs = require('exceljs');
 
     // *read xlsx file from path
 
-    const workbook = xlsx.readFile(path);
-    const sheetNameList = workbook.Sheets[workbook.SheetNames[0]];
-    // const ws = workbook.Sheets["Sheet2"];
+    workbook = xlsx.readFile(path);
+    sheetNameList = workbook.Sheets[workbook.SheetNames[0]];
 
-    const fileData = xlsx.utils.sheet_to_json(sheetNameList); // in json - no row/col
-    const headerList = xlsx.utils.sheet_to_json(sheetNameList, {header: 1}); // use raw:false for formatted string ex. %
+    fileData = xlsx.utils.sheet_to_json(sheetNameList); // in json - no row/col
+    headerList = xlsx.utils.sheet_to_json(sheetNameList, {header: 1}); // use raw:false for formatted string ex. %
     [ ['A', 'B'],
-      ['1', '2']]
+      ['1', '2'],]
 
     // *show by header names
-    // console.log(headerList);
-
+    console.log(headerList);
     // *show contents in cells
     console.log(fileData);
 
       // *show outputs of Site on html
-
-      var newUtlOne = [];
-      var newUtlTwo = [];
-
       for ( var i = 0;i < fileData.length;i++){
 
         var siteName = fileData[i].Site;
         var siteUtl = fileData[i].Utilization * 100;
 
         if(siteName.includes(1)){
-          var siteOneUtl = siteUtl;
+          siteOneUtl = siteUtl;
           newUtlOne.push(siteOneUtl)
           // console.log(siteName +' utlization is '+ siteOneUtl + '%');
           // document.getElementById('filedataShow').innerHTML = siteName + siteOneUtl;
         } else if (siteName.includes(2)){
-          var siteTwoUtl = siteUtl;
+          siteTwoUtl = siteUtl;
           newUtlTwo.push(siteTwoUtl)
           // console.log(siteName +' utlization is '+ siteTwoUtl + '%');
           // document.getElementById('filedataShow').innerHTML = siteName + siteTwoUtl;
           }
         }
 
-          var maxUtl = [];
-
-          for (var a = 0; a < 15 ; a++)
+          // *create new array containing Max Utilization
+          for (var a = 0; a < 15 ; a++){
               if (newUtlOne[a] < newUtlTwo[a]) {
-                maxUtl.push(newUtlTwo[a])
-                // console.log('two max');
+                maxUtl[a] = newUtlTwo[a]
               } else {
-                maxUtl.push(newUtlOne[a])
-                // console.log('one max');
+                maxUtl[a] = newUtlOne[a]
+              }
+            }
+
+          // *create new data for max utilizations
+          // newData = [{
+          //   "Site" : finalSite ,
+          //   "Utilization" : maxUtl
+          // }];
+          for (var i = 0; i < finalSite.length; i++) {
+            newData[i] = [ finalSite[i] , maxUtl[i] ]
           }
-
-          // *show values from new arrays
-          console.log(newUtlOne);
-          console.log(newUtlTwo);
-          console.log('Max Utilization');
-          console.log(maxUtl);
-
-          })
-
+          // console.log(newData);
         })
-
       })
+    })
+
+    const runBtn = document.getElementById('run')
+    runBtn.addEventListener('click', function(event){
+      console.log('running...');
+      console.log(newData);
+       // document.getElementById('filedataShow').innerHTML = newData;
 
 
-
-        // var myJSON = JSON.stringify(fileData);
-        // console.log(myJSON); // *show data as string
-
-        // *function for finding values in each column
+      // *unable to write back on workbook, try on html
+      function generateTableHead(table, data) {
+        let thead = table.createTHead();
+        let row = thead.insertRow();
+        for (let key of data) {
+          let th = document.createElement("th");
+          let text = document.createTextNode(key);
+          th.appendChild(text);
+          row.appendChild(th);
+        }
+      }
+      function generateTable(table, data) {
+        for (let element of data) {
+          let row = table.insertRow();
+          for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+          }
+        }
+      }
+      let table = document.querySelector("table");
+      let data = Object.keys(newData[0]);
+      generateTableHead(table, data);
+      generateTable(table, newData);
+    })
