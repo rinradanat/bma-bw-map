@@ -75,14 +75,9 @@ const exceljs = require('exceljs');
             }
 
           // *create new data for max utilizations
-          // newData = [{
-          //   "Site" : finalSite ,
-          //   "Utilization" : maxUtl
-          // }];
           for (var i = 0; i < finalSite.length; i++) {
             newData[i] = [ finalSite[i] , maxUtl[i] ]
           }
-          // console.log(newData);
         })
       })
     })
@@ -92,7 +87,6 @@ const exceljs = require('exceljs');
       console.log('running...');
       console.log(newData);
        // document.getElementById('filedataShow').innerHTML = newData;
-
 
       // *unable to write back on workbook, try on html
       function generateTableHead(table, data) {
@@ -115,8 +109,7 @@ const exceljs = require('exceljs');
           }
         }
       }
-      let table = document.querySelector("table");
-      let data = Object.keys(newData[0]);
-      generateTableHead(table, data);
+      var headers = ["Site" , "Utilization(%)"];
+      generateTableHead(table, headers);
       generateTable(table, newData);
     })
