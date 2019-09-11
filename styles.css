@@ -1,8 +1,29 @@
-body,h1 {font-family: "Raleway", sans-serif}
+body,h1,p {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-  background-image: url('/w3images/forestbridge.jpg');
+  /* background-image: url(''); */
   min-height: 100%;
   background-position: center;
   background-size: cover;
 }
+
+td,th {
+  border: 1px solid black;
+  text-align: center;
+    }
+table {
+  padding: 2%;
+  /* border-spacing: 2px; */
+  table-layout:fixed;
+  }
+
+/* button {
+      width: 40px;
+      height: 30px;
+      background-color: #f44336;
+      color: white;
+      margin: 8px 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  } */
