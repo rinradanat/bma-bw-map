@@ -9,12 +9,6 @@ const xlsx = require('xlsx');
 const exceljs = require('exceljs');
 const {webContents} = require('electron');
 
-
-    // ipc.on('file-name', function(event, path) {
-    //   document.getElementById('filename').innerHTML = path;
-    //   console.log(path);
-    // })
-
       // *unable to write back on workbook, try on html
 
       ipc.send('req-new-data');
@@ -23,8 +17,6 @@ const {webContents} = require('electron');
       ipc.on('send-to-import', function(event, newData) {
         console.log('received!');
         console.log(newData);
-        // document.getElementById('filedataShow').innerHTML = newData;
-
 
         function generateTableHead(table, data) {
           let thead = table.createTHead();
@@ -50,5 +42,14 @@ const {webContents} = require('electron');
         var headers = ["Site" , "Utilization(%)"];
         generateTableHead(table, headers);
         generateTable(table, newData);
-    
+
     });
+
+    // *for exporting ++ saving file dialog
+    // const exportBtn = document.getElementById('exportxlsx')
+    // exportBtn.addEventListener('click', function(event) {
+    //   console.log('xlsx');
+    //
+    // var tableSelect = document.getElementById('table');
+    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    })

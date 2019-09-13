@@ -60,12 +60,9 @@ const os = require('os');
             app.quit();
           }
         }
-      ]
-    }
-  ];
+      ]}];
 
-      // open dialog
-
+      // *open dialog
       ipc.on('open-file-dialog-for-file', function (event) {
         if(os.platform() === 'linux' || os.platform() === 'win32'){
            dialog.showOpenDialog({
@@ -86,7 +83,7 @@ const os = require('os');
          // load imported window
          importWindow = new BrowserWindow({
            // parent: mainWindow,
-           // modal:true,
+           modal:true,
            webPreferences: { nodeIntegration: true}})
          importWindow.loadURL(url.format({
            pathname: path.join(__dirname, 'src/imported.html'),
@@ -95,6 +92,7 @@ const os = require('os');
            // show: false
          }));
 
+           mainWindow.close();
            console.log(newData);
 
          ipc.on('req-new-data', function(event) {

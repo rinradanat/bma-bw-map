@@ -25,7 +25,7 @@ const exceljs = require('exceljs');
 
     ipc.on('selected-file', function (event, path) {
     console.log('file path: ', path);
-   //  document.getElementById('fileNameShow').innerHTML = path;
+    document.getElementById('fileNameShow').innerHTML = 'File from : ' + path;
 
 
     fs.readFile(path, 'utf-8', (err, data) => {
@@ -35,7 +35,6 @@ const exceljs = require('exceljs');
         }
 
     // *read xlsx file from path
-
     workbook = xlsx.readFile(path);
     sheetNameList = workbook.Sheets[workbook.SheetNames[0]];
 
@@ -90,32 +89,6 @@ const exceljs = require('exceljs');
 
       console.log('running...');
       console.log(newData);
-    
-      // // *unable to write back on workbook, try on html
-      // function generateTableHead(table, data) {
-      //   let thead = table.createTHead();
-      //   let row = thead.insertRow();
-      //   for (let key of data) {
-      //     let th = document.createElement("th");
-      //     let text = document.createTextNode(key);
-      //     th.appendChild(text);
-      //     row.appendChild(th);
-      //   }
-      // }
-      // function generateTable(table, data) {
-      //   for (let element of data) {
-      //     let row = table.insertRow();
-      //     for (key in element) {
-      //       let cell = row.insertCell();
-      //       let text = document.createTextNode(element[key]);
-      //       cell.appendChild(text);
-      //     }
-      //   }
-      // }
-      // var headers = ["Site" , "Utilization(%)"];
-      // generateTableHead(table, headers);
-      // generateTable(table, newData);
 
       ipc.send('show-import-window', (newData))
-
-    });
+});

@@ -18,12 +18,14 @@ table {
   }
 
 button {
-      /* width: 40px;
-      height: 30px;
-      background-color: #f44336;
-      color: white; */
+      /* width: 50px;
+      height: 25px; */
+      /* background-color: #f44336;
+      color: white;  */
       margin: 8px 5px;
+      text-align: center;
       /* border: none; */
+      border-color: black;
       border-radius: 5px;
       cursor: pointer;
   }
