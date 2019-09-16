@@ -20,8 +20,8 @@ const os = require('os');
     app.on('ready', function(){
       //create new window
       mainWindow = new BrowserWindow({
-      // width: 600,
-      // height: 425,
+      width: 600,
+      height: 425,
       resizable: true,
       webPreferences: { nodeIntegration: true}
       });
@@ -78,7 +78,7 @@ const os = require('os');
            });
        }});
 
-       // show new win
+       // show import win
        ipc.on('show-import-window', function(event, newData){
          // load imported window
          importWindow = new BrowserWindow({
@@ -104,6 +104,36 @@ const os = require('os');
           importWindow = null;
       })
      });
+
+     // show map win
+     ipc.on('show-map-window', function(event, newData){
+         // load map window
+       mapWindow = new BrowserWindow({
+         // parent: mainWindow,
+         width: 1000,
+         height: 730,
+         modal:true,
+         webPreferences: { nodeIntegration: true}})
+       mapWindow.loadURL(url.format({
+         pathname: path.join(__dirname, 'src/map.html'),
+         protocol: 'file:',
+         slashes: true,
+         // show: false
+       }));
+
+       importWindow.close();
+
+       // send data to map
+       ipc.on('request-data', function(event){
+         mapWindow.webContents.send('send-to-map', newData)
+       })
+
+       mapWindow.on('closed', function () {
+       mapWindow = null;
+        });
+      });
+
+
 
 // add dev tools
 

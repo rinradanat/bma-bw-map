@@ -9,8 +9,9 @@ const xlsx = require('xlsx');
 const exceljs = require('exceljs');
 const {webContents} = require('electron');
 
-      // *unable to write back on workbook, try on html
+var newData = [];
 
+      // *unable to write back on workbook, try on html
       ipc.send('req-new-data');
       console.log('requesting...');
 
@@ -43,7 +44,14 @@ const {webContents} = require('electron');
         generateTableHead(table, headers);
         generateTable(table, newData);
 
+        const nextBtn = document.getElementById('next')
+        nextBtn.addEventListener('click', function(event){
+        console.log('creating map...');
+
+          ipc.send('show-map-window', (newData))
+        });
     });
+
 
     // *for exporting ++ saving file dialog
     // const exportBtn = document.getElementById('exportxlsx')
@@ -52,4 +60,3 @@ const {webContents} = require('electron');
     //
     // var tableSelect = document.getElementById('table');
     // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-    })
