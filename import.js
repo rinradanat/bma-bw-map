@@ -50,7 +50,7 @@ var newData = [];
 
           ipc.send('show-map-window', (newData))
         });
-    });
+      });
 
 
     // *for exporting ++ saving file dialog

@@ -17,6 +17,9 @@ table {
   table-layout:fixed;
   }
 
+h2 {font-family: "Raleway", sans-serif
+}
+
 button {
       /* width: 50px;
       height: 25px; */
@@ -28,4 +31,181 @@ button {
       border-color: black;
       border-radius: 5px;
       cursor: pointer;
+  }
+
+  img {
+    border-color: black;
+    border-width: 10px;
+  }
+
+  /* #bmamap
+ {
+      left: 0px;
+      top: 0px;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: 650px;
+      height: 650px;
+      overflow: hidden;
+      z-index:0;
+     } */
+
+ #conditions{
+   text-align: right;
+   top: 10px;
+   right: 0px;
+ }
+
+  #LTP
+  {
+       left: 233px;
+       top: 402px;
+       position: absolute;
+       width: 105px;
+       height: 82px;
+       z-index:1;
+       color: #f1f1f1;
+  }
+
+   #PTT
+  {
+       left: 99px;
+       top: 170px;
+       position: absolute;
+       width: 226px;
+       height: 163px;
+       z-index:2;
+       border: 2px;
+       border-color: red;
+  }
+
+   #RIT
+  {
+       left: 260px;
+       top: 310px;
+       position: absolute;
+       width: 139px;
+       height: 151px;
+       z-index:3;
+  }
+
+   #TYAN
+  {
+       left: 308px;
+       top: 417px;
+       position: absolute;
+       width: 99px;
+       height: 101px;
+       z-index:4;
+  }
+
+   #BBT
+  {
+       left: 48px;
+       top: 161px;
+       position: absolute;
+       width: 202px;
+       height: 286px;
+       z-index:5;
+  }
+
+   #PKK
+  {
+       left: 160px;
+       top: 282px;
+       position: absolute;
+       width: 132px;
+       height: 147px;
+       z-index:6;
+  }
+
+   #RBN
+  {
+       left: 131px;
+       top: 518px;
+       position: absolute;
+       width: 126px;
+       height: 175px;
+       z-index:7;
+  }
+
+   #PSN
+  {
+       left: 96px;
+       top: 433px;
+       position: absolute;
+       width: 129px;
+       height: 153px;
+       z-index:8;
+  }
+
+   #CSW
+  {
+       left: 156px;
+       top: 427px;
+       position: absolute;
+       width: 95px;
+       height: 102px;
+       z-index:9;
+  }
+
+   #TYB
+  {
+       left: 301px;
+       top: 50px;
+       position: absolute;
+       width: 295px;
+       height: 229px;
+       z-index:10;
+  }
+
+   #DNM
+  {
+       left: 318px;
+       top: 188px;
+       position: absolute;
+       width: 249px;
+       height: 158px;
+       z-index:11;
+  }
+
+   #BGC
+  {
+       left: 365px;
+       top: 315px;
+       position: absolute;
+       width: 220px;
+       height: 216px;
+       z-index:12;
+  }
+
+   #BPL
+  {
+       left: 334px;
+       top: 503px;
+       position: absolute;
+       width: 267px;
+       height: 197px;
+       z-index:13;
+  }
+
+   #ASD
+  {
+       left: 223px;
+       top: 456px;
+       position: absolute;
+       width: 96px;
+       height: 92px;
+       z-index:14;
+  }
+
+   #PSP
+  {
+       left: 295px;
+       top: 481px;
+       position: absolute;
+       width: 111px;
+       height: 82px;
+       z-index:15;
   }

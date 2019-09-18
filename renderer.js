@@ -74,7 +74,7 @@ const exceljs = require('exceljs');
               } else {
                 maxUtl[a] = newUtlOne[a]
               }
-            }
+          }
 
           // *create new data for max utilizations
           for (var i = 0; i < finalSite.length; i++) {
@@ -91,4 +91,4 @@ const exceljs = require('exceljs');
       console.log(newData);
 
       ipc.send('show-import-window', (newData))
-});
+    });

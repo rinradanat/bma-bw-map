@@ -82,7 +82,6 @@ const os = require('os');
        ipc.on('show-import-window', function(event, newData){
          // load imported window
          importWindow = new BrowserWindow({
-           // parent: mainWindow,
            modal:true,
            webPreferences: { nodeIntegration: true}})
          importWindow.loadURL(url.format({
@@ -109,9 +108,8 @@ const os = require('os');
      ipc.on('show-map-window', function(event, newData){
          // load map window
        mapWindow = new BrowserWindow({
-         // parent: mainWindow,
          width: 1000,
-         height: 730,
+         height: 700,
          modal:true,
          webPreferences: { nodeIntegration: true}})
        mapWindow.loadURL(url.format({
@@ -132,9 +130,6 @@ const os = require('os');
        mapWindow = null;
         });
       });
-
-
-
 // add dev tools
 
   if(process.env.NODE_ENV !== 'production'){
