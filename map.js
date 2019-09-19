@@ -5,98 +5,63 @@ const BrowserWindow = electron.remote.BrowserWindow;
 const remote = require('electron');
 const {webContents} = require('electron');
 
-  ipc.send('request-data')
-  console.log('requesting...');
+   ipc.send('request-data')
+    console.log('requesting...');
 
-  ipc.on('send-to-map', function (event, newData) {
+   ipc.on('send-to-map', function (event, newData) {
     console.log('received!');
     console.log(newData);
-  });
 
-  // for filling colours
-  // var context = document.getElementById('bmamap').getContext("2d");
-  //
-  // function loadImgs(sources, callback) {
-  //   var imgs = {};
-  //   var loadedImgs = 0;
-  //   var numImgs = 0;
-  //
-  //   for (var src in sources){
-  //     numImgs++;
-  //   }
-  //   for (var src in sources){
-  //     imgs[src] = new Image();
-  //     imgs[src].onload = function(){
-  //       if(++loadedImgs >= numImgs){
-  //         callback(imgs);
-  //       }
-  //     };
-  //     imgs[src].src = sources[src];
-  //       // context.fillRect(imgs[src].src , 10, 10, 50, 50);// use this for image source => function
-  //     // draw(imgs[src.src]);
-  //   }
-  // }
-  //
-  // var sources = {
-  //     ASD : "pngs/ASD.png",
-  //     BBT : "pngs/BBT.png",
-  //     BGC : "pngs/BGC.png",
-  //     BPL : "pngs/BPL.png",
-  //     CSW : "pngs/CSW.png",
-  //     DNM : "pngs/DNM.png",
-  //     LTP : "pngs/LTP.png",
-  //     PKK : "pngs/PKK.png",
-  //     PSN : "pngs/PSN.png",
-  //     PSP : "pngs/PSP.png",
-  //     PTT : "pngs/PTT.png",
-  //     RBN : "pngs/RBN.png",
-  //     RIT : "pngs/RIT.png",
-  //     TYAN : "pngs/TYAN.png",
-  //     TYB : "pngs/TYB.png"
-  // };
-  //
-  // loadImgs(sources, function(imgs){
-  //     context.drawImage(imgs.ASD, 203, 416, 96, 92);
-  //     context.drawImage(imgs.BBT, 28, 121, 202, 286);
-  //     context.drawImage(imgs.BGC, 345, 275, 220, 216);
-  //     context.drawImage(imgs.BPL, 314, 463, 267, 197);
-  //     context.drawImage(imgs.CSW, 136, 387, 95, 102);
-  //     context.drawImage(imgs.DNM, 298, 148, 249, 158);
-  //     context.drawImage(imgs.LTP, 213, 362, 105, 82);
-  //     context.drawImage(imgs.PKK, 140, 242, 132, 147);
-  //     context.drawImage(imgs.PSN, 76, 393, 129, 153);
-  //     context.drawImage(imgs.PSP, 275, 441, 111, 82);
-  //     context.drawImage(imgs.PTT, 79, 130, 226, 163);
-  //     context.drawImage(imgs.RBN, 111, 478, 126, 175);
-  //     context.drawImage(imgs.RIT, 240, 270, 139, 151);
-  //     context.drawImage(imgs.TYAN, 288, 377, 99, 101);
-  //     context.drawImage(imgs.TYB, 281, 10, 295, 229);
-  // });
+   var canvas = document.getElementById('bmamap'); // get the canvas object
+   var ctx = canvas.getContext('2d'); //get the 2d context
+
+   var pngsData = [
+     { site : ASD, left : 203, top : 416, width: 96, height: 92},
+     { site : BBT, left : 28,  top : 121, width: 202, height: 286},
+     { site : BGC, left : 345, top : 275, width: 220, height: 216},
+     { site : BPL, left : 314, top : 463, width: 267, height: 197},
+     { site : CSW, left : 136, top : 387, width: 95, height: 102},
+     { site : DNM, left : 298, top : 148, width: 249, height: 158},
+     { site : LTP, left : 213, top : 362, width: 105, height: 82},
+     { site : PKK, left : 140, top : 242, width: 132, height: 147},
+     { site : PSN, left : 76,  top : 393, width: 129, height: 153},
+     { site : PSP, left : 275, top : 441, width: 111, height: 82},
+     { site : PTT, left : 79,  top : 130, width: 226, height: 163},
+     { site : RBN, left : 111, top : 478, width: 126, height: 175},
+     { site : RIT, left : 240, top : 270, width: 139, height: 151},
+     { site : TYAN, left: 288, top : 377, width: 99, height: 101},
+     { site : TYB, left : 281, top : 10, width: 295, height: 229}
+    ]
 
 
+      var changeColor = function() {
 
-  // try new
-
-  var canvas = document.getElementById('bmamap'); // get the canvas object
-  var ctx = canvas.getContext('2d'); //get the 2d context
-  var ASD = document.getElementById('ASD');
-  var BBT = document.getElementById('BPL');
-  var BGC = document.getElementById('BGC');
-
-       ctx.drawImage(ASD, 203, 416);
-       ctx.drawImage(BPL, 314, 463);
-       ctx.drawImage(BGC, 345, 275);
-
-   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-   var data = imageData.data;
-
-   var changeColor = function() {
            for (var i = 0; i < data.length; i += 4) { // we are jumping every 4 values of RGBA for every pixel
-             data[i]     = data[i] - 199;      // the red color channel - we have decreased its value
-             data[i + 1] = data[i + 1] - 199;  // the green color channel - we have decreased its value
-             data[i + 2] = data[i + 2] + 100;  // the blue color channel - we have increased its value
+               data[i]     = data[i] - 199;      // the red color channel - we have decreased its value
+               data[i + 1] = data[i + 1] - 200;  // the green color channel - we have decreased its value
+               data[i + 2] = data[i + 2] + 100;  // the blue color channel - we have increased its value
            }
-       ctx.putImageData(imageData, 0, 0);
-     };
+            ctx.putImageData(imageData, pngsData[i].left , pngsData[i].top);
+       };
 
-   changeColor();
+       for (var i = 0; i < 15; i++) {
+         ctx.drawImage(pngsData[i].site , pngsData[i].left , pngsData[i].top);
+
+         var imageData = ctx.getImageData(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+         var data = imageData.data;
+         console.log(data);
+
+        if (newData[i][1] >= 30 && newData[i][1] >= 40 && newData[i][1] < 80 ) {
+         ctx.fillStyle = "#ff9900";
+         ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+        } else if (newData[i][1] >= 80 ) {
+        ctx.fillStyle = "#cc3300";
+        ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+        } else {
+         ctx.fillStyle = "#006600";
+         ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+        }
+       };
+
+
+   });
