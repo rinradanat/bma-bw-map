@@ -4,6 +4,7 @@ const path = require('path');
 const BrowserWindow = electron.remote.BrowserWindow;
 const remote = require('electron');
 const {webContents} = require('electron');
+// const Jimp = require('jimp');
 
    ipc.send('request-data')
     console.log('requesting...');
@@ -14,7 +15,6 @@ const {webContents} = require('electron');
 
    var canvas = document.getElementById('bmamap'); // get the canvas object
    var ctx = canvas.getContext('2d'); //get the 2d context
-
    var pngsData = [
      { site : ASD, left : 203, top : 416, width: 96, height: 92},
      { site : BBT, left : 28,  top : 121, width: 202, height: 286},
@@ -33,35 +33,37 @@ const {webContents} = require('electron');
      { site : TYB, left : 281, top : 10, width: 295, height: 229}
     ]
 
-
-      var changeColor = function() {
-
-           for (var i = 0; i < data.length; i += 4) { // we are jumping every 4 values of RGBA for every pixel
-               data[i]     = data[i] - 199;      // the red color channel - we have decreased its value
-               data[i + 1] = data[i + 1] - 200;  // the green color channel - we have decreased its value
-               data[i + 2] = data[i + 2] + 100;  // the blue color channel - we have increased its value
-           }
-            ctx.putImageData(imageData, pngsData[i].left , pngsData[i].top);
-       };
-
        for (var i = 0; i < 15; i++) {
-         ctx.drawImage(pngsData[i].site , pngsData[i].left , pngsData[i].top);
+       ctx.drawImage(pngsData[i].site , pngsData[i].left , pngsData[i].top);
 
-         var imageData = ctx.getImageData(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
-         var data = imageData.data;
-         console.log(data);
+       var imageData = ctx.getImageData(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+       var data = imageData.data;
+       console.log(data);
 
-        if (newData[i][1] >= 30 && newData[i][1] >= 40 && newData[i][1] < 80 ) {
-         ctx.fillStyle = "#ff9900";
-         ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
-        } else if (newData[i][1] >= 80 ) {
-        ctx.fillStyle = "#cc3300";
-        ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
-        } else {
-         ctx.fillStyle = "#006600";
-         ctx.fillRect(pngsData[i].left , pngsData[i].top, pngsData[i].width, pngsData[i].height);
+        if (newData[i][1] < 50 ) {
+           for (var j = 0; j < data.length; j += 4 ) {
+             data[j] = 51;
+             data[j+1] = 102;
+             data[j+2] = 0;
+           }
+           ctx.putImageData(imageData, pngsData[i].left , pngsData[i].top)
+        } else if (newData[i][1] >= 80) {
+            for (var j = 0; j < data.length; j += 4) {
+              data[j] = 153;
+              data[j+1] = 0;
+              data[j+2] = 0;
+           }
+            ctx.putImageData(imageData, pngsData[i].left , pngsData[i].top)
+        } else
+        // if (newData[i][1] >= 50 && newData[i][1] < 80 )
+            {
+             for (var j = 0; j < data.length; j += 4) {
+               data[j] = 255;
+               data[j+1] = 153;
+               data[j+2] = 0;
+            }
+             ctx.putImageData(imageData, pngsData[i].left , pngsData[i].top)
+          }
         }
-       };
 
-
-   });
+      });
