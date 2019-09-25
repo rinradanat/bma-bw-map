@@ -111,6 +111,7 @@ const os = require('os');
          width: 1000,
          height: 700,
          modal:true,
+         resizable:false,
          webPreferences: { nodeIntegration: true}})
        mapWindow.loadURL(url.format({
          pathname: path.join(__dirname, 'src/map.html'),
