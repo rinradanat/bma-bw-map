@@ -1,27 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>BMA Map Utilizations</title
+    <meta charset="UTF-8" />
+    <title>BMA Map Utilizations</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
-
+    <link rel="stylesheet" type="text/css" href="../node_modules/simptip/simptip.css" />
   </head>
 
   <body bgcolor="#E6E6FA">
 
-<div id="map" width="1000px" height="700px" >
+    <div id="map" class="map" style="position:inherit;">
+
+    </div>
 
 
-</div>
+    <div id="conditions" class="conditions" style="background-color:white;border:1px solid #d3d3d3;">
 
-<!-- 
-    <canvas id="conditions" width="300px" height="300px" style="border:1px solid #d3d3d3;right:0px">
+      <!-- <h2>Bandwidth Capacity in BMA</h2> -->
+      <p>Conditions</p>
 
-      <h2 style="text-align:right;">Bandwidth Capacity in BMA</h2>
-      <p style="text-align:right;">Conditions</p>
+      <img class="icon" src="pngs/red.png" /><br>
+      <img class="icon" src="pngs/yellow.png" /><br>
+      <img class="icon" src="pngs/green.png" /><br>
 
-    </canvas> -->
-  <script src="map.js"> </script>
+    </div>
+
+    <div id="export" class="export">
+      <button id="exp" class="simptip-position-top" data-tooltip="Sure?">Export</button><br>
+      <span id="showname" class="simptip-position-top" data-tooltip="Show"> Show </span>
+    </div>
+
+  <script src="map.js"></script>
   </body>
 </html>

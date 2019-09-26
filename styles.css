@@ -1,4 +1,5 @@
-body,h1,p {font-family: "Raleway", sans-serif}
+body,h1,p,h2 {font-family: "Raleway", sans-serif}
+
 body, html {height: 100%}
 #bgimg {
   /* background-image: url(''); */
@@ -10,15 +11,18 @@ body, html {height: 100%}
 td,th {
   border: 1px solid black;
   text-align: center;
-    }
+  }
+
+td:hover {
+  background-color: pink;
+  font-weight: bold;
+}
+
 table {
   padding: 2%;
   /* border-spacing: 2px; */
-  table-layout:relative;
+  table-layout:fixed;
   }
-
-h2 {font-family: "Raleway", sans-serif
-}
 
 button {
       /* width: 50px;
@@ -37,146 +41,189 @@ button {
  {
       left: 0px;
       top: 0px;
-      position: relative;
+      position: fixed;
       margin-left: auto;
       margin-right: auto;
-      width: 650px;
-      height: 650px;
+      width: 700px;
+      height: 700px;
       overflow: hidden;
-      z-index:0;
      }
 
-  /* .LTP
+  .LTP
   {
-       left: 233px;
-       top: 402px;
-       position: relative;
+       left: 213px;
+       top: 362px;
+       position: fixed;
        width: 105px;
        height: 82px;
   }
 
    .PTT
   {
-       left: 99px;
-       top: 170px;
-       position: relative;
+       left: 79px;
+       top: 130px;
+       position: fixed;
        width: 226px;
        height: 163px;
+
   }
 
    .RIT
   {
-       left: 260px;
-       top: 310px;
-       position: relative;
+       left: 240px;
+       top: 270px;
+       position: fixed;
        width: 139px;
        height: 151px;
+
   }
 
    .TYAN
   {
-       left: 308px;
-       top: 417px;
-       position: relative;
+       left: 288px;
+       top: 377px;
+       position: fixed;
        width: 99px;
        height: 101px;
+
   }
 
    .BBT
   {
-       /* left: 48px;
-       top: 161px; */
-       position: relative;
+       left: 28px;
+       top: 121px;
+       position: fixed;
        width: 202px;
        height: 286px;
+
   }
 
    .PKK
   {
-       left: 160px;
-       top: 282px;
-       position: relative;
+       left: 140px;
+       top: 242px;
+       position: fixed;
        width: 132px;
        height: 147px;
   }
 
    .RBN
   {
-       left: 131px;
-       top: 518px;
-       position: relative;
+       left: 111px;
+       top: 478px;
+       position: fixed;
        width: 126px;
        height: 175px;
+
   }
 
    .PSN
   {
-       left: 96px;
-       top: 433px;
-       position: relative;
+       left: 76px;
+       top: 393px;
+       position: fixed;
        width: 129px;
        height: 153px;
+
   }
 
    .CSW
   {
-       left: 156px;
-       top: 427px;
-       position: relative;
+       left: 136px;
+       top: 387px;
+       position: fixed;
        width: 95px;
        height: 102px;
+
   }
 
    .TYB
   {
-       left: 301px;
-       top: 50px;
-       position: relative;
+       left: 281px;
+       top: 10px;
+       position: fixed;
        width: 295px;
        height: 229px;
+
   }
 
    .DNM
   {
-       /* left: 318px;
-       top: 188px; */
-       position: relative;
+       left: 298px;
+       top: 148px;
+       position: fixed;
        width: 249px;
        height: 158px;
+
   }
 
    .BGC
   {
-       left: 365px;
-       top: 315px;
-       position: relative;
+       left: 345px;
+       top: 275px;
+       position: fixed;
        width: 220px;
        height: 216px;
+
   }
 
    .BPL
   {
-       left: 334px;
-       top: 503px;
-       position: relative;
+       left: 314px;
+       top: 463px;
+       position: fixed;
        width: 267px;
        height: 197px;
+
   }
 
    .ASD
   {
        left: 203px;
        top: 416px;
-       position: relative;
+       position: fixed;
        width: 96px;
        height: 92px;
+
   }
+
 
    .PSP
   {
-       left: 295px;
-       top: 481px;
-       position: relative;
+       left: 275px;
+       top: 441px;
+       position: fixed;
        width: 111px;
        height: 82px;
-  } */
+
+  }
+
+  .conditions {
+      max-width: 100%;
+      width: 150px;
+      height: 180px;
+      right: 20px;
+      top: 20px;
+      position: fixed;
+      text-align: center;
+  }
+
+  .icon {
+      padding-bottom: 10%;
+      margin-left: -100px;
+  }
+
+ .site:hover {
+     filter: brightness(1.5);
+     display: inline-block;
+  }
+
+  .export {
+        max-width: 100%;
+        width: 100px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        text-align: center;
+    }
