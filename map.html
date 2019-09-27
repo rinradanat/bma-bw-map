@@ -10,14 +10,14 @@
 
   <body bgcolor="#E6E6FA">
 
-    <div id="map" class="map" style="position:inherit;">
+    <div id="map" class="map container" style="position:inherit;">
+    
+      <div id="tooltips" class="div-tooltip"></div>
 
     </div>
 
 
     <div id="conditions" class="conditions" style="background-color:white;border:1px solid #d3d3d3;">
-
-      <!-- <h2>Bandwidth Capacity in BMA</h2> -->
       <p>Conditions</p>
 
       <img class="icon" src="pngs/red.png" /><br>
@@ -27,8 +27,8 @@
     </div>
 
     <div id="export" class="export">
-      <button id="exp" class="simptip-position-top" data-tooltip="Sure?">Export</button><br>
-      <span id="showname" class="simptip-position-top" data-tooltip="Show"> Show </span>
+      <button id="exp" class="simptip-position-top" data-tooltip="?">Export</button><br>
+      <!-- <span id="showname" class="simptip-position-top" data-tooltip="Show"> span </span> -->
     </div>
 
   <script src="map.js"></script>
