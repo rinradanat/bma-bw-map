@@ -25,7 +25,21 @@ const exceljs = require('exceljs');
 
     ipc.on('selected-file', function (event, path) {
     console.log('file path: ', path);
-    document.getElementById('fileNameShow').innerHTML = 'File from : ' + path;
+
+    var from = path.lastIndexOf("/");
+    var before = path.indexOf(".");
+    var fileName = [];
+
+      for (var i = from + 1 ; i < before ; i++) {
+        fileName += path.charAt(i)
+      }
+
+    document.getElementById('fileNameShow').innerHTML = 'File : ' +fileName +'.xlsx';
+
+    document.getElementById('fileNameShow').addEventListener('click', function(event){
+      ipc.send('open-file-dialog-for-file')
+      console.log('opening new file...');
+    })
 
 
     fs.readFile(path, 'utf-8', (err, data) => {

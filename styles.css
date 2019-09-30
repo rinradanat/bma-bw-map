@@ -24,6 +24,12 @@ table {
   table-layout:fixed;
   }
 
+h4:hover {
+  color: #666633;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 button {
       /* width: 50px;
       height: 25px; */
@@ -213,10 +219,10 @@ button {
       margin-left: -100px;
   }
 
- .site:hover {
+ /* .site:hover {
      filter: brightness(1.5);
      display: inline-block;
-  }
+  } */
 
   .export {
         max-width: 100%;
@@ -227,3 +233,121 @@ button {
         position: fixed;
         text-align: center;
     }
+
+  .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    position: fixed;
+
+  }
+
+  .hvr-grow:hover,
+  .hvr-grow:focus,
+  .hvr-grow:active {
+    filter: brightness(1.5);
+    display: inline-block;
+    transform: scale(1);
+  }
+
+.div-tooltip {
+      opacity: 0;
+      position: fixed;
+      top:0;
+      left:0;
+      background: #fff;
+      color: #444;
+      padding: 10px 20px;
+      margin:20px;
+      z-index: 99999;
+      border-radius: 5px;
+}
+/* Add this attribute to the element that needs a tooltip */
+
+[data-tooltip] {
+  position: fixed;
+  z-index: 2;
+  color: white;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  z-index: 1;
+
+}
+
+/* Hide the tooltip content by default */
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: inherit;
+  /* bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  border-radius: 2px;
+  border: 1px outset #C0C0C0;
+  box-shadow: 3px 2px 5px #9F9F9F;
+  background-color: #000;
+  background-color: hsla(206, 73%, 34%, 0.9);
+  color: #FFFFFF;
+  content: attr(data-tooltip); */
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/* Show tooltip content on hover */
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  position: fixed;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+.overlay {
+  text-align: center;
+  /* opacity: 0; */
+}
+
+.container:hover .overlay {
+  opacity: 1;
+  filter: brightness(1.5);
+  display: inline-block;
+  transform: scale(1);
+}
+
+.text {
+  color: white;
+  z-index: 1;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  font-size: 12px;
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  height: 10%;
+
+}
