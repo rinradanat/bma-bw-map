@@ -7,11 +7,11 @@ const remote = require('electron');
 const fs = require('fs');
 const xlsx = require('xlsx');
 const exceljs = require('exceljs');
+var FileSaver = require('file-saver');
 const {webContents} = require('electron');
 
 var newData = [];
 
-      // *unable to write back on workbook, try on html
       ipc.send('req-new-data');
       console.log('requesting...');
 
@@ -48,15 +48,22 @@ var newData = [];
         nextBtn.addEventListener('click', function(event){
         console.log('creating map...');
 
-          ipc.send('show-map-window', (newData))
+        ipc.send('show-map-window', (newData))
         });
-      });
 
+        // *for exporting table
+        // var wb = xlsx.utils.table_to_book(document.getElementById('table'), {sheet:"Sheet 1"});
+        // var wbout = xlsx.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+        //   function s2ab(s) {
+        //           var buf = new ArrayBuffer(s.length);
+        //           var view = new Uint8Array(buf);
+        //           for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+        //           return buf;
+        //   }
+        //
+        // const exportBtn = document.getElementById('exportxlsx')
+        // exportBtn.addEventListener('click', function(event){
+        //   saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'new.xlsx');
+        // });
 
-    // *for exporting ++ saving file dialog
-    // const exportBtn = document.getElementById('exportxlsx')
-    // exportBtn.addEventListener('click', function(event) {
-    //   console.log('xlsx');
-    //
-    // var tableSelect = document.getElementById('table');
-    // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    });

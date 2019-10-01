@@ -1,4 +1,4 @@
-body,h1,p,h2 {font-family: "Raleway", sans-serif}
+body,h1,p,h2,a {font-family: "Raleway", sans-serif}
 
 body, html {height: 100%}
 #bgimg {
@@ -8,13 +8,17 @@ body, html {height: 100%}
   background-size: cover;
 }
 
+a {
+  font-size: 13px;
+}
+
 td,th {
   border: 1px solid black;
   text-align: center;
   }
 
 td:hover {
-  background-color: pink;
+  background-color: gray;
   font-weight: bold;
 }
 
@@ -26,7 +30,7 @@ table {
 
 h4:hover {
   color: #666633;
-  text-decoration: underline;
+  text-decoration:line-through;
   cursor: pointer;
 }
 
@@ -208,7 +212,7 @@ button {
       max-width: 100%;
       width: 150px;
       height: 180px;
-      right: 20px;
+      right: 45px;
       top: 20px;
       position: fixed;
       text-align: center;
@@ -216,24 +220,18 @@ button {
 
   .icon {
       padding-bottom: 10%;
-      margin-left: -100px;
   }
 
- /* .site:hover {
-     filter: brightness(1.5);
-     display: inline-block;
-  } */
-
   .export {
-        max-width: 100%;
-        width: 100px;
-        height: 50px;
-        right: 20px;
-        bottom: 20px;
-        position: fixed;
-        text-align: center;
+      max-width: 100%;
+      width: 100px;
+      height: 50px;
+      right: 60px;
+      bottom: 20px;
+      position: fixed;
+      text-align: center;
     }
-
+/*
   .hvr-grow {
     display: inline-block;
     vertical-align: middle;
@@ -253,9 +251,9 @@ button {
     filter: brightness(1.5);
     display: inline-block;
     transform: scale(1);
-  }
+  } */
 
-.div-tooltip {
+  .div-tooltip {
       opacity: 0;
       position: fixed;
       top:0;
@@ -266,62 +264,6 @@ button {
       margin:20px;
       z-index: 99999;
       border-radius: 5px;
-}
-/* Add this attribute to the element that needs a tooltip */
-
-[data-tooltip] {
-  position: fixed;
-  z-index: 2;
-  color: white;
-  top: 0px;
-  left: 0px;
-  text-align: center;
-  z-index: 1;
-
-}
-
-/* Hide the tooltip content by default */
-
-[data-tooltip]:before,
-[data-tooltip]:after {
-  visibility: hidden;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Position tooltip above the element */
-[data-tooltip]:before {
-  position: inherit;
-  /* bottom: 150%;
-  left: 50%;
-  margin-bottom: 5px;
-  margin-left: -80px;
-  padding: 7px;
-  width: 160px;
-  border-radius: 2px;
-  border: 1px outset #C0C0C0;
-  box-shadow: 3px 2px 5px #9F9F9F;
-  background-color: #000;
-  background-color: hsla(206, 73%, 34%, 0.9);
-  color: #FFFFFF;
-  content: attr(data-tooltip); */
-  text-align: center;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-/* Show tooltip content on hover */
-
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  position: fixed;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
 }
 
 .overlay {
@@ -348,6 +290,24 @@ button {
 
 .container {
   position: absolute;
-  height: 10%;
+  width: auto;
+  height: auto;
+}
 
+.column {
+  float: left;
+  width: 40%;
+}
+
+.row {
+  height: 40px;
+}
+
+.smalltable {
+  right: 20px;
+  bottom: 15%;
+  position: fixed;
+  text-align: center;
+  font-size: 12px;
+  background-color: white;
 }

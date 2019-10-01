@@ -6,28 +6,60 @@
     <title>BMA Map Utilizations</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="../node_modules/simptip/simptip.css" />
+
   </head>
 
-  <body bgcolor="#E6E6FA">
+  <body id="mappage" bgcolor="#E6E6FA">
 
     <div id="map" class="map" style="position:inherit;">
 
-      <!-- <div id="tooltips" class="div-tooltip" ></div> -->
     </div>
-
 
     <div id="conditions" class="conditions" style="background-color:white;border:1px solid #d3d3d3;">
-      <p>Conditions</p>
 
-      <img class="icon" src="pngs/red.png" /><br>
-      <img class="icon" src="pngs/yellow.png" /><br>
-      <img class="icon" src="pngs/green.png" /><br>
+      <h3>Conditions</h3>
+
+      <div class="row" >
+        <div class="column">
+          <img class="icon" src="pngs/red.png" />
+        </div>
+        <div class="column">
+          <a>more than 80%</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img class="icon" src="pngs/yellow.png" />
+        </div>
+        <div class="column">
+          <a>more than 60%</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img class="icon" src="pngs/green.png" />
+        </div>
+        <div class="column">
+          <a>less than 50%</a>
+        </div>
+      </div>
 
     </div>
 
-    <div id="export" class="export">
-      <button id="exp" class="simptip-position-top" data-tooltip="?">Export</button><br>
-      <!-- <span id="showname" class="simptip-position-top" data-tooltip="Show"> span </span> -->
+    <div class="smalltable" style="background-color:white;border:1px solid #d3d3d3;">
+      <table id="table" style="text-align:center">
+      </table>
+    </div>
+
+    <div class="row export">
+      <div class="column" style="padding-right:20px;">
+        <button id="expfile" >Export File</button>
+      </div>
+      <div class="column">
+        <button id="expmap" >Export Map</button><br>
+      </div>
     </div>
 
   <script src="map.js"></script>

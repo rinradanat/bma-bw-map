@@ -27,14 +27,13 @@ const exceljs = require('exceljs');
     console.log('file path: ', path);
 
     var from = path.lastIndexOf("/");
-    var before = path.indexOf(".");
     var fileName = [];
 
-      for (var i = from + 1 ; i < before ; i++) {
+      for (var i = from + 1 ; i < path.length ; i++) {
         fileName += path.charAt(i)
       }
 
-    document.getElementById('fileNameShow').innerHTML = 'File : ' +fileName +'.xlsx';
+    document.getElementById('fileNameShow').innerHTML = 'File : ' +fileName;
 
     document.getElementById('fileNameShow').addEventListener('click', function(event){
       ipc.send('open-file-dialog-for-file')
@@ -105,4 +104,5 @@ const exceljs = require('exceljs');
       console.log(newData);
 
       ipc.send('show-import-window', (newData))
+
     });
