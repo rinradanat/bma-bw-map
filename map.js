@@ -69,6 +69,7 @@ var newData = [];
             // document.getElementById(sites[i]).setAttribute('data-tooltip', sites[i] +' '+newData[i][1] + '%');
        }
 
+       // *create table from data
        function generateTableHead(table, data) {
          let thead = table.createTHead();
          let row = thead.insertRow();
@@ -94,7 +95,7 @@ var newData = [];
        generateTableHead(table, headers);
        generateTable(table, newData);
 
-       // *for exporting table
+       // *for exporting table & map
        var wb = xlsx.utils.table_to_book(document.getElementById('table'), {sheet:"Sheet 1"});
        var wbout = xlsx.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
          function s2ab(s) {
@@ -113,10 +114,10 @@ var newData = [];
        exportMap.addEventListener('click', function(event){
          htmlToImage.toBlob(document.getElementById('map'))
          .then(function (blob) {
-            window.saveAs(blob, 'map.png');
+            window.saveAs(blob, 'map.jpg');
           });
        });
-       
+
      });
 
       // let setUpToolTip = function() {

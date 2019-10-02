@@ -35,6 +35,9 @@ const exceljs = require('exceljs');
 
     document.getElementById('fileNameShow').innerHTML = 'File : ' +fileName;
 
+    // var div = document.getElementById('showfilename');
+    // div.innerHTML += '<button id=ccbtn class="ccbtn">X</button>';
+
     document.getElementById('fileNameShow').addEventListener('click', function(event){
       ipc.send('open-file-dialog-for-file')
       console.log('opening new file...');
@@ -68,15 +71,13 @@ const exceljs = require('exceljs');
         var siteUtl = fileData[i].Utilization * 100;
 
         if(siteName.includes(1)){
-          siteOneUtl = siteUtl;
+          siteOneUtl = siteUtl.toPrecision(4); // 2 digits
           newUtlOne.push(siteOneUtl)
           // console.log(siteName +' utlization is '+ siteOneUtl + '%');
-          // document.getElementById('filedataShow').innerHTML = siteName + siteOneUtl;
         } else if (siteName.includes(2)){
-          siteTwoUtl = siteUtl;
+          siteTwoUtl = siteUtl.toPrecision(4); // 2 digits
           newUtlTwo.push(siteTwoUtl)
           // console.log(siteName +' utlization is '+ siteTwoUtl + '%');
-          // document.getElementById('filedataShow').innerHTML = siteName + siteTwoUtl;
           }
         }
 
