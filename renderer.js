@@ -71,11 +71,11 @@ const exceljs = require('exceljs');
         var siteUtl = fileData[i].Utilization * 100;
 
         if(siteName.includes(1)){
-          siteOneUtl = siteUtl.toPrecision(4); // 2 digits
+          siteOneUtl = siteUtl.toPrecision(2); // 2 digits
           newUtlOne.push(siteOneUtl)
           // console.log(siteName +' utlization is '+ siteOneUtl + '%');
         } else if (siteName.includes(2)){
-          siteTwoUtl = siteUtl.toPrecision(4); // 2 digits
+          siteTwoUtl = siteUtl.toPrecision(2); // 2 digits
           newUtlTwo.push(siteTwoUtl)
           // console.log(siteName +' utlization is '+ siteTwoUtl + '%');
           }

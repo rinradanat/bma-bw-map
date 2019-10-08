@@ -7,9 +7,6 @@ const ipc = require('electron').ipcMain;
 process.env.NODE_ENV = 'development';
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
-// const formidable = require('formidable');
-// const fs = require('fs');
-
 const {app, BrowserWindow, Menu, dialog,webContents } = require('electron');
 const os = require('os');
 
@@ -23,8 +20,10 @@ const os = require('os');
       width: 600,
       height: 425,
       resizable: true,
-      webPreferences: { nodeIntegration: true}
+      webPreferences: { nodeIntegration: true},
+      // icon: path.join(__dirname, 'assets/icons/png/64x64.png')
       });
+
       //load html into window
       mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'src/index.html'),
@@ -83,6 +82,7 @@ const os = require('os');
          // load imported window
          importWindow = new BrowserWindow({
            modal:true,
+           // titleBarStyle:'hidden',
            webPreferences: { nodeIntegration: true}})
          importWindow.loadURL(url.format({
            pathname: path.join(__dirname, 'src/imported.html'),
@@ -108,10 +108,11 @@ const os = require('os');
      ipc.on('show-map-window', function(event, newData){
          // load map window
        mapWindow = new BrowserWindow({
-         width: 1000,
+         width: 850,
          height: 700,
          modal:true,
          resizable:false,
+         // titleBarStyle:'hidden',
          webPreferences: { nodeIntegration: true}})
        mapWindow.loadURL(url.format({
          pathname: path.join(__dirname, 'src/map.html'),

@@ -53,9 +53,10 @@ button {
       position: fixed;
       margin-left: auto;
       margin-right: auto;
-      width: 700px;
-      height: 700px;
+      width: 600px;
+      height: 630px;
       overflow: hidden;
+
      }
 
   .LTP
@@ -97,7 +98,7 @@ button {
 
   }
 
-   .BBT
+   .BBT , #parent
   {
        left: 28px;
        top: 121px;
@@ -196,7 +197,6 @@ button {
 
   }
 
-
    .PSP
   {
        left: 275px;
@@ -215,42 +215,23 @@ button {
       top: 30px;
       position: fixed;
       text-align: center;
+      /* color: #003; */
   }
 
   .icon {
-      padding-bottom: 10%;
+      padding-bottom: 15%;
+      cursor: pointer;
   }
 
   .export {
       max-width: 100%;
       width: 100px;
       height: 50px;
-      right: 60px;
+      right: 85px;
       bottom: 20px;
       position: fixed;
       text-align: center;
     }
-/*
-  .hvr-grow {
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
-    position: fixed;
-
-  }
-
-  .hvr-grow:hover,
-  .hvr-grow:focus,
-  .hvr-grow:active {
-    filter: brightness(1.5);
-    display: inline-block;
-    transform: scale(1);
-  } */
 
   .div-tooltip {
       opacity: 0;
@@ -267,6 +248,8 @@ button {
 
 .overlay {
   text-align: center;
+  font-weight: bold;
+  font-size: 15px;
   /* opacity: 0; */
 }
 
@@ -278,13 +261,40 @@ button {
 }
 
 .text {
-  color: white;
   z-index: 1;
   position: absolute;
-  left: -15px;
+  left: -10px;
   top: 50%;
   font-size: 12px;
   text-align: center;
+  font-weight: 600;
+}
+
+.RBN .text {
+  left: -15px;
+  top: 30%;
+}
+
+.ASD .text {
+  left: -5px;
+  top: 35%;
+}
+
+.LTP .text, .PKK .text {
+  left: 10px;
+}
+
+.PSP .text {
+  left: -20px;
+}
+
+.TYAN .text, .CSW .text{
+  top: 40%;
+  left:5px;
+}
+
+.BPL .text, .RIT .text, .PTT .text {
+  top: 30%;
 }
 
 .container {
@@ -303,12 +313,14 @@ button {
 }
 
 .smalltable {
+  display: none;
   right: 50px;
   bottom: 15%;
   position: fixed;
   text-align: center;
   font-size: 12px;
   background-color: white;
+  border-color: gray;
 }
 
 .ccbtn {
@@ -351,7 +363,7 @@ button {
   width: 68px;
   border-radius: 10px;
   /* box-shadow: 3px 2px 5px #9F9F9F; */
-  background-color: hsla(0, 73%, 34%, 0.9);
+  background-color: hsla(0, 73%, 34%, 0.85);
   color: #FFFFFF;
   content: attr(data-tooltip);
   text-align: center;
@@ -368,7 +380,7 @@ button {
   left: 50%;
   margin-left: -5px;
   width: 0;
-  border-top: 5px solid hsla(0, 73%, 34%, 0.9);
+  border-top: 5px solid hsla(0, 73%, 34%, 0.85);
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   content: " ";
@@ -383,4 +395,8 @@ button {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+.clicked {
+  transform: scale(2);
 }

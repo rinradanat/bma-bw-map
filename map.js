@@ -56,20 +56,35 @@ var newData = [];
        for (var i = 0; i < sites.length; i++) {
 
             if (newData[i][1] >= 80) {
-              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+redSrc[i]+'"/><div class="'+sites[i]+' overlay"><div class="'+sites[i]+' text">'+sites[i]+'</div></div></div>'; // data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
+              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+redSrc[i]+'"/><div class="'+sites[i]+' red overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; // data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
             } else if (newData[i][1] < 50) {
-              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' overlay"><div class="'+sites[i]+' text">'+sites[i]+'</div></div></div>'; //data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
+              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' green overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; //data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
             } else if (newData[i][1] >= 50 && newData[i][1] < 80) {
-              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+yellowSrc[i]+'"/><div class="'+sites[i]+' overlay"><div class="'+sites[i]+' text">'+sites[i]+'</div></div></div>';
+              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+yellowSrc[i]+'"/><div class="'+sites[i]+' yellow overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>';
             }
             document.getElementById(sites[i]).className = sites[i] + ' sites overlay';
-            // document.getElementById(sites[i]).onmouseover = function(){
-	          //      this.setAttribute('data-tooltip', 'test')}
-            // document.getElementById(sites[i]).title = sites[i] +' '+newData[i][1] + '%';
-            // document.getElementById(sites[i]).setAttribute('data-tooltip', sites[i] +' '+newData[i][1] + '%');
        }
 
-       // *create table from data
+       // show sites by conditions - a plus 
+
+       var redic = document.getElementById('redic');
+       var yellowic = document.getElementById('yellowic');
+       var greenic = document.getElementById('greenic');
+
+       redic.addEventListener('click', function (event){
+         console.log('red source');
+         // document.getElementsByClassName('red').className += 'clicked';
+       })
+
+       yellowic.addEventListener('click', function (event){
+         console.log('yellow source');
+       })
+
+       greenic.addEventListener('click', function (event){
+         console.log('green source');
+       })
+
+       // create table from data
        function generateTableHead(table, data) {
          let thead = table.createTHead();
          let row = thead.insertRow();
@@ -114,34 +129,8 @@ var newData = [];
        exportMap.addEventListener('click', function(event){
          htmlToImage.toBlob(document.getElementById('map'))
          .then(function (blob) {
-            window.saveAs(blob, 'map.jpg');
+            window.saveAs(blob, 'map.png');
           });
        });
 
      });
-
-      // let setUpToolTip = function() {
-      //   let tooltip = "",
-      //       toolTipDiv = document.querySelector(".div-tooltip"),
-      //       toolTipElements = Array.from(document.querySelectorAll(".hover-reveal"));
-      //
-      //   let displayToolTip = function(e, obj) {
-      //     tooltip = obj.dataset.tooltip;
-      //     toolTipDiv.innerHTML = tooltip;
-      //     toolTipDiv.style.top = e.pageY + "px";
-      //     toolTipDiv.style.left = e.pageX + "px";
-      //     toolTipDiv.style.opacity = 1;
-      //     toolTipDiv.style.property = "inherit";
-      //   }
-      //
-      //   toolTipElements.forEach(function(elem) {
-      //     elem.addEventListener("mouseenter", function(e) {
-      //         displayToolTip(e, this);
-      //     });
-      //     elem.addEventListener("mouseleave", function(e) {
-      //         toolTipDiv.style.opacity = 0;
-      //     });
-      //   })
-      // }
-      // setUpToolTip();
-    // });
