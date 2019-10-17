@@ -19,7 +19,7 @@ var newData = [];
     console.log(newData);
 
     var sites = ['ASD','BBT','BGC','BPL','CSW','DNM','LTP',
-    'PKK','PSN','PSP','PTT','RBN','RIT','TYAN','TYB'];
+    'PKK','PSN','PSP','PTT','RBN','RIT','TTW','TYB'];
 
     var redSrc = [
      'pngs-red/ASD.png', 'pngs-red/BBT.png',
@@ -28,7 +28,7 @@ var newData = [];
      'pngs-red/LTP.png', 'pngs-red/PKK.png',
      'pngs-red/PSN.png', 'pngs-red/PSP.png',
      'pngs-red/PTT.png', 'pngs-red/RBN.png',
-     'pngs-red/RIT.png', 'pngs-red/TYAN.png',
+     'pngs-red/RIT.png', 'pngs-red/TTW.png',
      'pngs-red/TYB.png']
 
     var yellowSrc = [
@@ -38,7 +38,7 @@ var newData = [];
      'pngs-yellow/LTP.png', 'pngs-yellow/PKK.png',
      'pngs-yellow/PSN.png', 'pngs-yellow/PSP.png',
      'pngs-yellow/PTT.png', 'pngs-yellow/RBN.png',
-     'pngs-yellow/RIT.png', 'pngs-yellow/TYAN.png',
+     'pngs-yellow/RIT.png', 'pngs-yellow/TTW.png',
      'pngs-yellow/TYB.png']
 
     var greenSrc = [
@@ -48,7 +48,7 @@ var newData = [];
      'pngs-green/LTP.png', 'pngs-green/PKK.png',
      'pngs-green/PSN.png', 'pngs-green/PSP.png',
      'pngs-green/PTT.png', 'pngs-green/RBN.png',
-     'pngs-green/RIT.png', 'pngs-green/TYAN.png',
+     'pngs-green/RIT.png', 'pngs-green/TTW.png',
      'pngs-green/TYB.png']
 
     var div = document.getElementById('map');
@@ -65,24 +65,24 @@ var newData = [];
             document.getElementById(sites[i]).className = sites[i] + ' sites overlay';
        }
 
-       // show sites by conditions - a plus 
-
-       var redic = document.getElementById('redic');
-       var yellowic = document.getElementById('yellowic');
-       var greenic = document.getElementById('greenic');
-
-       redic.addEventListener('click', function (event){
-         console.log('red source');
-         // document.getElementsByClassName('red').className += 'clicked';
-       })
-
-       yellowic.addEventListener('click', function (event){
-         console.log('yellow source');
-       })
-
-       greenic.addEventListener('click', function (event){
-         console.log('green source');
-       })
+       // // show sites by conditions *** try lodash ***
+       //
+       // var redic = document.getElementById('redic');
+       // var yellowic = document.getElementById('yellowic');
+       // var greenic = document.getElementById('greenic');
+       //
+       // redic.addEventListener('click', function (event){
+       //   console.log('red source');
+       //   // document.getElementsByClassName('red').className += 'clicked';
+       // })
+       //
+       // yellowic.addEventListener('click', function (event){
+       //   console.log('yellow source');
+       // })
+       //
+       // greenic.addEventListener('click', function (event){
+       //   console.log('green source');
+       // })
 
        // create table from data
        function generateTableHead(table, data) {

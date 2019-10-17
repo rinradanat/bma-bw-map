@@ -13,7 +13,7 @@ const exceljs = require('exceljs');
     var siteOneUtl,siteTwoUtl
     var maxUtl = [];
     var finalSite = ['AGN-ASD','AGN-BBT','AGN-BGC','AGN-BPL','AGN-CSW','AGN-DNM','AGN-LTP',
-    'AGN-PKK','AGN-PSN','AGN-PSP','AGN-PTT','AGN-RBN','AGN-RIT','AGN-TYAN','AGN-TYB'];
+    'AGN-PKK','AGN-PSN','AGN-PSP','AGN-PTT','AGN-RBN','AGN-RIT','AGN-TTW','AGN-TYB'];
     var newData = [];
     var workbook, worksheet, sheetNameList, fileData, headerList;
 

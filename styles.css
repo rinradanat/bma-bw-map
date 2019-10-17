@@ -1,4 +1,10 @@
 body,h1,p,h2,a {font-family: "Raleway", sans-serif}
+/* h1,h2 {color: #ac88ce;} */
+
+::selection {
+  color: #dbdbdb;
+  background: #443e6a;
+}
 
 body, html {height: 100%}
 #bgimg {
@@ -54,7 +60,7 @@ button {
       margin-left: auto;
       margin-right: auto;
       width: 600px;
-      height: 630px;
+      height: 700px;
       overflow: hidden;
 
      }
@@ -88,7 +94,7 @@ button {
 
   }
 
-   .TYAN
+   .TTW
   {
        left: 288px;
        top: 377px;
@@ -288,9 +294,9 @@ button {
   left: -20px;
 }
 
-.TYAN .text, .CSW .text{
+.TTW .text{
   top: 40%;
-  left:5px;
+  left:0px;
 }
 
 .BPL .text, .RIT .text, .PTT .text {
@@ -395,8 +401,4 @@ button {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
-}
-
-.clicked {
-  transform: scale(2);
 }
