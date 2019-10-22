@@ -33,16 +33,12 @@ const exceljs = require('exceljs');
         fileName += path.charAt(i)
       }
 
-    document.getElementById('fileNameShow').innerHTML = 'File : ' +fileName;
-
-    // var div = document.getElementById('showfilename');
-    // div.innerHTML += '<button id=ccbtn class="ccbtn">X</button>';
+    document.getElementById('fileNameShow').innerHTML = 'File Name : ' +fileName;
 
     document.getElementById('fileNameShow').addEventListener('click', function(event){
       ipc.send('open-file-dialog-for-file')
       console.log('opening new file...');
     })
-
 
     fs.readFile(path, 'utf-8', (err, data) => {
       if(err){
@@ -71,13 +67,11 @@ const exceljs = require('exceljs');
         var siteUtl = fileData[i].Utilization * 100;
 
         if(siteName.includes(1)){
-          siteOneUtl = siteUtl.toPrecision(2); // 2 digits
+          siteOneUtl = siteUtl.toPrecision(2);
           newUtlOne.push(siteOneUtl)
-          // console.log(siteName +' utlization is '+ siteOneUtl + '%');
         } else if (siteName.includes(2)){
-          siteTwoUtl = siteUtl.toPrecision(2); // 2 digits
+          siteTwoUtl = siteUtl.toPrecision(2);
           newUtlTwo.push(siteTwoUtl)
-          // console.log(siteName +' utlization is '+ siteTwoUtl + '%');
           }
         }
 

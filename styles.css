@@ -1,4 +1,5 @@
-body,h1,p,h2,a {font-family: "Raleway", sans-serif}
+body,h1,p,h2,a {font-family: "Raleway", sans-serif;
+}
 /* h1,h2 {color: #ac88ce;} */
 
 ::selection {
@@ -17,41 +18,71 @@ body, html {height: 100%}
 a {
   font-size: 13px;
 }
+h1,h2,p,h4 {color: white}
+
+.topic {
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 80px;
+  margin-top: 25px;
+  color: white;
+}
 
 td,th {
-  border: 1px solid black;
+  border: 2px solid hsla(271, 42%, 67%, 0.85);
+  border-left: 0px;
+  border-right: 0px;
+  padding: 4px;
   text-align: center;
+  color: #2e2e2e;
   }
 
+th {
+  font-size: 18px;
+  padding: 5px;
+  border: none;
+}
+
 td:hover {
-  /* background-color: hsla(0, 73%, 34%, 0.9); */
+  background-color: hsla(271, 42%, 67%, 0.85);
   font-weight: bold;
 }
 
 table {
-  padding: 1%;
-  /* border-spacing: 2px; */
+  width: 350px;
+  border-collapse: collapse !important;
+  padding: 5px;
+  /* border-spacing: 5px; */
   table-layout:fixed;
+  border-radius: 0.5em;
+  background-color: #f2f2f2;
+  }
+tr:last-child > td {
+    border-bottom: none;
   }
 
-h4:hover {
-  color: gray;
+h4:hover, button:hover {
+  color: #ac88ce;
   cursor: pointer;
 }
 
 button {
-      /* width: 50px;
-      height: 25px; */
-      /* background-color: .f44336;
-      color: white;  */
+      width: 55px;
+      height: 25px;
+      background-color: ;
       margin: 8px 5px;
       text-align: center;
-      /* border: none; */
+      font-size: 12px;
+      border: none;
       border-color: black;
-      border-radius: 5px;
-      cursor: pointer;
+      border-radius: 10px;
   }
 
+#expfile, #expmap
+{
+  width: 55px;
+  height: 30px;
+}
   .map
  {
       left: 0px;
@@ -104,7 +135,7 @@ button {
 
   }
 
-   .BBT , #parent
+   .BBT
   {
        left: 28px;
        top: 121px;
@@ -369,11 +400,11 @@ button {
   width: 68px;
   border-radius: 10px;
   /* box-shadow: 3px 2px 5px #9F9F9F; */
-  background-color: hsla(0, 73%, 34%, 0.85);
+  background-color: hsla(271, 42%, 67%, 0.85);
   color: #FFFFFF;
   content: attr(data-tooltip);
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: lighter;
   font-family: "Raleway", sans-serif;
   line-height: 1.2;
@@ -386,7 +417,7 @@ button {
   left: 50%;
   margin-left: -5px;
   width: 0;
-  border-top: 5px solid hsla(0, 73%, 34%, 0.85);
+  border-top: 5px solid hsla(271, 42%, 67%, 0.85);
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   content: " ";

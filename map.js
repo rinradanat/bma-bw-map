@@ -65,25 +65,6 @@ var newData = [];
             document.getElementById(sites[i]).className = sites[i] + ' sites overlay';
        }
 
-       // // show sites by conditions *** try lodash ***
-       //
-       // var redic = document.getElementById('redic');
-       // var yellowic = document.getElementById('yellowic');
-       // var greenic = document.getElementById('greenic');
-       //
-       // redic.addEventListener('click', function (event){
-       //   console.log('red source');
-       //   // document.getElementsByClassName('red').className += 'clicked';
-       // })
-       //
-       // yellowic.addEventListener('click', function (event){
-       //   console.log('yellow source');
-       // })
-       //
-       // greenic.addEventListener('click', function (event){
-       //   console.log('green source');
-       // })
-
        // create table from data
        function generateTableHead(table, data) {
          let thead = table.createTHead();
@@ -132,5 +113,4 @@ var newData = [];
             window.saveAs(blob, 'map.png');
           });
        });
-
      });

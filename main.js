@@ -82,6 +82,8 @@ const os = require('os');
          // load imported window
          importWindow = new BrowserWindow({
            modal:true,
+           width: 800,
+           height: 650,
            // titleBarStyle:'hidden',
            webPreferences: { nodeIntegration: true}})
          importWindow.loadURL(url.format({
@@ -132,8 +134,8 @@ const os = require('os');
        mapWindow = null;
         });
       });
-// add dev tools
 
+// add dev tools
   if(process.env.NODE_ENV !== 'production'){
     mainMenuTemplate.push({
       label: 'Developer Tools',
