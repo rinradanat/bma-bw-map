@@ -5,21 +5,55 @@
   "main": "main.js",
   "scripts": {
     "test": "electron .",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/rinradanat/bma-bw-map",
   "author": "Rinrada",
   "license": "ISC",
   "dependencies": {
-    "electron": "^6.0.7",
     "exceljs": "^1.15.0",
-    "formidable": "^1.2.1",
+    "file-saver": "^2.0.2",
+    "hover.css": "^2.3.2",
+    "html-to-image": "^0.1.1",
+    "jquery": "^3.4.1",
+    "react-tooltip": "^3.11.1",
     "read-excel-file": "^4.0.2",
+    "tether-tooltip": "^1.2.0",
     "xlsexport": "^1.5.2",
     "xlsx": "^0.15.1"
   },
   "devDependencies": {
+    "electron": "^6.0.7",
+    "electron-builder": "^20.44.4",
     "electron-devtools-installer": "^2.2.4",
     "electron-reload": "^1.5.0"
+  },
+  "build": {
+    "appId": "bma-bw-map",
+    "productName": "BMA Map",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "dmg": {
+      "icon": false,
+      "contents": [
+        {
+          "x": 130,
+          "y": 150
+        },
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
   }
 }

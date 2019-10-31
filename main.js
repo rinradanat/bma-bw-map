@@ -21,7 +21,7 @@ const os = require('os');
       height: 425,
       resizable: true,
       webPreferences: { nodeIntegration: true},
-      // icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+      icon: path.join(__dirname, 'assets/icons/icon.png')
       });
 
       //load html into window
@@ -37,21 +37,19 @@ const os = require('os');
       Menu.setApplicationMenu(mainMenu);
     });
 
-
-
 // create menu template
 
   const mainMenuTemplate =[
     {
       label:'File',
       submenu:[
-        {
-          label: 'Import File',
-          accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
-          // click(){
-          //   openFile();
-          // }
-        },
+        // {
+        //   label: 'Import File',
+        //   accelerator: process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
+        //   // click(){
+        //   //   openFile();
+        //   // }
+        // },
         {
           label: 'Quit',
           accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q', // test by node it's a shortcut
@@ -61,7 +59,7 @@ const os = require('os');
         }
       ]}];
 
-      // *open dialog
+      // open dialog
       ipc.on('open-file-dialog-for-file', function (event) {
         if(os.platform() === 'linux' || os.platform() === 'win32'){
            dialog.showOpenDialog({

@@ -3,11 +3,9 @@ const ipc = require('electron').ipcRenderer;
 const path = require('path');
 const BrowserWindow = electron.remote.BrowserWindow;
 const remote = require('electron');
-
 const fs = require('fs');
 const xlsx = require('xlsx');
 const exceljs = require('exceljs');
-var FileSaver = require('file-saver');
 const {webContents} = require('electron');
 
 var newData = [];
@@ -50,5 +48,4 @@ var newData = [];
 
         ipc.send('show-map-window', (newData))
         });
-
     });

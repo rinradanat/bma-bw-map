@@ -58,7 +58,7 @@ var newData = [];
             if (newData[i][1] >= 80) {
               div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+redSrc[i]+'"/><div class="'+sites[i]+' red overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; // data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
             } else if (newData[i][1] < 50) {
-              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' green overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; //data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
+              div.innerHTML += '<div class="'+sites[i]+' container green"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' green overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; //data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
             } else if (newData[i][1] >= 50 && newData[i][1] < 80) {
               div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+yellowSrc[i]+'"/><div class="'+sites[i]+' yellow overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>';
             }
