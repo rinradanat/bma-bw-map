@@ -1,6 +1,4 @@
-body,h1,p,h2,a {font-family: "Raleway", sans-serif;
-}
-/* h1,h2 {color: #ac88ce;} */
+body,h1,p,h2,a {font-family: "Raleway", sans-serif;}
 
 ::selection {
   color: #dbdbdb;
@@ -9,7 +7,6 @@ body,h1,p,h2,a {font-family: "Raleway", sans-serif;
 
 body, html {height: 100%}
 #bgimg {
-  /* background-image: url(''); */
   min-height: 100%;
   background-position: center;
   background-size: cover;
@@ -93,7 +90,6 @@ button {
       width: 600px;
       height: 700px;
       overflow: hidden;
-
      }
 
   .LTP
@@ -132,7 +128,6 @@ button {
        position: fixed;
        width: 99px;
        height: 101px;
-
   }
 
    .BBT
@@ -142,7 +137,6 @@ button {
        position: fixed;
        width: 202px;
        height: 286px;
-
   }
 
    .PKK
@@ -358,6 +352,7 @@ button {
   font-size: 12px;
   background-color: white;
   border-color: gray;
+  padding: 2px;
 }
 
 .ccbtn {
@@ -373,6 +368,9 @@ button {
   cursor: pointer;
 }
 
+#logo {
+  margin-top: 20px;
+}
 [data-tooltip] {
   position: relative;
   z-index: 2;
