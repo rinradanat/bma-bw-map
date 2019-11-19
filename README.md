@@ -1,6 +1,6 @@
 # BMA Bandwidth Utilization Map
 ###### Manual
-######  1.	Install .exe file on device
+ 1.	Install .exe file on device
 ######  2.	Open latest updated report and use Macro command: NewWB for creating new file to run on program
 ######  3.	Open program and choose a file from Open button
 ######  4.	If selected wrong file, click on the file name and change to the correct one
