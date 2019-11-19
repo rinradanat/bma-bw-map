@@ -19,7 +19,7 @@ var newData = [];
     console.log(newData);
 
     var sites = ['ASD','BBT','BGC','BPL','CSW','DNM','LTP',
-    'PKK','PSN','PSP','PTT','RBN','RIT','TTW','TYB'];
+    'PKK','PSN','PSP','PTT','RBN','RIT','TMM','TTW','TYB'];
 
     var redSrc = [
      'pngs-red/ASD.png', 'pngs-red/BBT.png',
@@ -28,8 +28,8 @@ var newData = [];
      'pngs-red/LTP.png', 'pngs-red/PKK.png',
      'pngs-red/PSN.png', 'pngs-red/PSP.png',
      'pngs-red/PTT.png', 'pngs-red/RBN.png',
-     'pngs-red/RIT.png', 'pngs-red/TTW.png',
-     'pngs-red/TYB.png']
+     'pngs-red/RIT.png', 'pngs-red/TMM.png',
+     'pngs-red/TTW.png', 'pngs-red/TYB.png']
 
     var yellowSrc = [
      'pngs-yellow/ASD.png', 'pngs-yellow/BBT.png',
@@ -38,8 +38,8 @@ var newData = [];
      'pngs-yellow/LTP.png', 'pngs-yellow/PKK.png',
      'pngs-yellow/PSN.png', 'pngs-yellow/PSP.png',
      'pngs-yellow/PTT.png', 'pngs-yellow/RBN.png',
-     'pngs-yellow/RIT.png', 'pngs-yellow/TTW.png',
-     'pngs-yellow/TYB.png']
+     'pngs-yellow/RIT.png', 'pngs-yellow/TMM.png',
+     'pngs-yellow/TTW.png', 'pngs-yellow/TYB.png']
 
     var greenSrc = [
      'pngs-green/ASD.png', 'pngs-green/BBT.png',
@@ -48,17 +48,17 @@ var newData = [];
      'pngs-green/LTP.png', 'pngs-green/PKK.png',
      'pngs-green/PSN.png', 'pngs-green/PSP.png',
      'pngs-green/PTT.png', 'pngs-green/RBN.png',
-     'pngs-green/RIT.png', 'pngs-green/TTW.png',
-     'pngs-green/TYB.png']
+     'pngs-green/RIT.png', 'pngs-yellow/TMM.png',
+     'pngs-green/TTW.png', 'pngs-green/TYB.png']
 
     var div = document.getElementById('map');
 
        for (var i = 0; i < sites.length; i++) {
 
             if (newData[i][1] >= 80) {
-              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+redSrc[i]+'"/><div class="'+sites[i]+' red overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; // data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
+              div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+redSrc[i]+'"/><div class="'+sites[i]+' red overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>';
             } else if (newData[i][1] < 50) {
-              div.innerHTML += '<div class="'+sites[i]+' container green"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' green overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>'; //data-tooltip="'+sites[i] +' '+newData[i][1] + '%" />';
+              div.innerHTML += '<div class="'+sites[i]+' container green"><img id="'+sites[i]+'" src="'+greenSrc[i]+'"/><div class="'+sites[i]+' green overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>';
             } else if (newData[i][1] >= 50 && newData[i][1] < 80) {
               div.innerHTML += '<div class="'+sites[i]+' container"><img id="'+sites[i]+'" src="'+yellowSrc[i]+'"/><div class="'+sites[i]+' yellow overlay"><div class="'+sites[i]+' text">'+sites[i]+'<br>'+newData[i][1]+'%</div></div></div>';
             }
@@ -91,7 +91,7 @@ var newData = [];
        generateTableHead(table, headers);
        generateTable(table, newData);
 
-       // *for exporting table & map
+       // for exporting table & map
        var wb = xlsx.utils.table_to_book(document.getElementById('table'), {sheet:"Sheet 1"});
        var wbout = xlsx.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
          function s2ab(s) {
