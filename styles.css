@@ -227,15 +227,15 @@ button {
        height: 92px;
 
   }
-/*
+
   .TMM
  {
-      left: px;
-      top: px;
+      left: 251px;
+      top: 433px;
       position: fixed;
-      width: px;
-      height: px;
- } */
+      width: 48px;
+      height: 49px;
+ }
 
    .PSP
   {
@@ -310,15 +310,15 @@ button {
   font-weight: 600;
 }
 
-.RBN .text {
-  left: -15px;
+.RBN .text, .ASD .text{
+  left: -12px;
   top: 30%;
 }
-
+/*
 .ASD .text {
   left: -5px;
   top: 35%;
-}
+} */
 
 .LTP .text, .PKK .text {
   left: 10px;
@@ -333,6 +333,10 @@ button {
   left:0px;
 }
 
+.TMM .text {
+  top: 20%;
+  left: 2px;
+}
 .BPL .text, .RIT .text, .PTT .text {
   top: 30%;
 }

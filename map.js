@@ -17,6 +17,7 @@ var newData = [];
    ipc.on('send-to-map', function (event, newData) {
     console.log('received!');
     console.log(newData);
+    // console.log(fileName);
 
     var sites = ['ASD','BBT','BGC','BPL','CSW','DNM','LTP',
     'PKK','PSN','PSP','PTT','RBN','RIT','TMM','TTW','TYB'];
@@ -48,7 +49,7 @@ var newData = [];
      'pngs-green/LTP.png', 'pngs-green/PKK.png',
      'pngs-green/PSN.png', 'pngs-green/PSP.png',
      'pngs-green/PTT.png', 'pngs-green/RBN.png',
-     'pngs-green/RIT.png', 'pngs-yellow/TMM.png',
+     'pngs-green/RIT.png', 'pngs-green/TMM.png',
      'pngs-green/TTW.png', 'pngs-green/TYB.png']
 
     var div = document.getElementById('map');
@@ -110,7 +111,8 @@ var newData = [];
        exportMap.addEventListener('click', function(event){
          htmlToImage.toBlob(document.getElementById('map'))
          .then(function (blob) {
-            window.saveAs(blob, 'map.png');
+            // window.saveAs(blob, 'map.png');
+           window.saveAs(blob, fileName + '_map.png');
           });
        });
      });
