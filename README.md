@@ -1,6 +1,6 @@
 # BMA Bandwidth Utilization Map
 
-## BMA Bandwidth Utilization Map User Guide
+## User Guide
 1.	For Windows OS, install .exe file on device
 2.	Open latest updated report on Microsoft Excel and use Macro command: NewWB for creating new workbook to run on program
 3.	Open program and choose a file from Open button
