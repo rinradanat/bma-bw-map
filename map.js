@@ -17,7 +17,6 @@ var newData = [];
    ipc.on('send-to-map', function (event, newData) {
     console.log('received!');
     console.log(newData);
-    // console.log(fileName);
 
     var sites = ['ASD','BBT','BGC','BPL','CSW','DNM','LTP',
     'PKK','PSN','PSP','PTT','RBN','RIT','TMM','TTW','TYB'];
@@ -111,8 +110,7 @@ var newData = [];
        exportMap.addEventListener('click', function(event){
          htmlToImage.toBlob(document.getElementById('map'))
          .then(function (blob) {
-            // window.saveAs(blob, 'map.png');
-           window.saveAs(blob, fileName + '_map.png');
+           window.saveAs(blob, '_map.png');
           });
        });
      });
