@@ -22,7 +22,7 @@
     "read-excel-file": "^4.0.2",
     "tether-tooltip": "^1.2.0",
     "xlsexport": "^1.5.2",
-    "xlsx": "^0.15.1"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "electron": "^6.0.7",
