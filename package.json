@@ -19,7 +19,7 @@
     "html-to-image": "^0.1.1",
     "jquery": "^3.4.1",
     "react-tooltip": "^3.11.1",
-    "read-excel-file": "^4.0.2",
+    "read-excel-file": "^5.5.0",
     "tether-tooltip": "^1.2.0",
     "xlsexport": "^1.5.2",
     "xlsx": "^0.15.1"
